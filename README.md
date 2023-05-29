@@ -19,6 +19,7 @@ To get started with this project, follow the steps below.
 
 ```shell
 git clone https://github.com/username/project.git
+```
 
 ### Change to the project directory:
 cd project
