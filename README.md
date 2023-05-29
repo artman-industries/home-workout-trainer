@@ -20,10 +20,10 @@ To get started with this project, follow the steps below.
 ```shell
 git clone https://github.com/username/project.git
 
-Change to the project directory:
+### Change to the project directory:
 cd project
 
-2. Activate the Conda environment for the relevant sub-project:
+### Activate the Conda environment for the relevant sub-project:
 conda env create -f relevant sub-project/env.yaml
 conda activate collect_data_env
 
