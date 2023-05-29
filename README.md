@@ -22,11 +22,15 @@ git clone https://github.com/username/project.git
 ```
 
 ### Change to the project directory:
+```shell
 cd project
+```
 
 ### Activate the Conda environment for the relevant sub-project:
+```shell
 conda env create -f relevant sub-project/env.yaml
 conda activate collect_data_env
+```
 
 ## Usage
 Explain how to use each sub-project and any additional steps required to run them.
