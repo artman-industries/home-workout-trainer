@@ -15,11 +15,10 @@ def calculate_angle(a: np.ndarray, b: np.ndarray, c: np.ndarray, unit: AngleUnit
     a: Array representing point a with dimension d.
     b: Array representing point b with dimension d.
     c: Array representing point c with dimension d.
-    unit: The unit of the angle to be returned. Possible values: 'radians' (default) or 'degrees'.
-
+    unit (AngleUnit, optional): The unit of the angle representation (degrees or radians).
+            Defaults to AngleUnit.RADIANS.
     Returns:
-    The angle between points a, b, and c. By default, it returns the angle in radians.
-    If unit='degrees', it returns the angle in degrees.
+        float: The angle between points ABC in the specified unit.
 
     Raises:
     ValueError: If the dimensions of a, b, or c are not equal.
@@ -30,8 +29,7 @@ def calculate_angle(a: np.ndarray, b: np.ndarray, c: np.ndarray, unit: AngleUnit
         b = np.array([0, 0])
         c = np.array([0, 1])
 
-        calculate_angle(a, b, c) = 1.5707963267948966
-        calculate_angle(a, b, c, unit='degrees') = 90.0
+        calculate_angle(a, b, c, unit=AngleUnit.RADIANS) = 1.5707963267948966
     """
     if a.shape != b.shape or b.shape != c.shape:
         raise ValueError("Dimensions of a, b, and c must be equal.")
