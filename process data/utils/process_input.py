@@ -1,6 +1,13 @@
 import numpy as np
+from enum import Enum
+import math
 
-def calculate_angle(a: np.ndarray, b: np.ndarray, c: np.ndarray, unit: str = 'radians') -> float:
+class AngleUnit(Enum):
+    RADIANS = 'radians'
+    DEGREES = 'degrees'
+
+
+def calculate_angle(a: np.ndarray, b: np.ndarray, c: np.ndarray, unit: AngleUnit = AngleUnit.RADIANS) -> float:
     """
     Calculate the angle between points a, b, and c.
 
@@ -19,13 +26,12 @@ def calculate_angle(a: np.ndarray, b: np.ndarray, c: np.ndarray, unit: str = 'ra
     ValueError: If the unit is not 'radians' or 'degrees'.
 
     Example:
-    >>> a = np.array([1, 0])
-    >>> b = np.array([0, 0])
-    >>> c = np.array([0, 1])
-    >>> calculate_angle(a, b, c)
-    1.5707963267948966
-    >>> calculate_angle(a, b, c, unit='degrees')
-    90.0
+        a = np.array([1, 0])
+        b = np.array([0, 0])
+        c = np.array([0, 1])
+
+        calculate_angle(a, b, c) = 1.5707963267948966
+        calculate_angle(a, b, c, unit='degrees') = 90.0
     """
     if a.shape != b.shape or b.shape != c.shape:
         raise ValueError("Dimensions of a, b, and c must be equal.")
@@ -44,14 +50,11 @@ def calculate_angle(a: np.ndarray, b: np.ndarray, c: np.ndarray, unit: str = 'ra
     # Calculate the angle using the dot product and magnitudes
     angle_rad = np.arccos(dot_product / (magnitude_ab * magnitude_bc))
 
-    if unit == 'degrees':
-        angle_deg = np.degrees(angle_rad)
-        return float(angle_deg)
-    elif unit == 'radians':
-        return angle_rad
+    if unit == AngleUnit.DEGREES:
+        angle = math.degrees(angle_rad)
     else:
-        raise ValueError("Invalid unit. Please choose 'radians' or 'degrees'.")
-
+        angle = angle_rad
+    return angle
 
 # a = np.array([1, 0])
 # b = np.array([0, 0])
