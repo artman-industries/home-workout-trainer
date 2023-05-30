@@ -4,15 +4,15 @@ from typing import Optional
 
 class FrameRepresentation:
     """
-    A class representing a frame representation with knee and ankle attributes.
+    A class representing a frame.
     """
 
     def __init__(
             self,
-            right_knee_angle: Optional[float] = None,
-            left_knee_angle: Optional[float] = None,
-            knee_distance: Optional[float] = None,
-            ankle_distance: Optional[float] = None
+            right_knee_angle: Optional[float] = 0.0,
+            left_knee_angle: Optional[float] = 0.0,
+            knee_distance: Optional[float] = 0.0,
+            ankle_distance: Optional[float] = 0.0
     ):
         """
         Initializes a FrameRepresentation instance.
